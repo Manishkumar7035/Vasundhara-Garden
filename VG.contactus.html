@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Us | Vasundhara Garden</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #090a09;
+            --card: #111310;
+            --gold: #c9a96e;
+            --gold-light: #ead4a0;
+            --text: #f3f0e8;
+            --muted: #a6a69b;
+            --border: rgba(201, 169, 110, 0.3);
+        }
+
+        body {
+            min-height: 100vh;
+            padding: 30px 15px;
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(ellipse at top,
+                    rgba(201, 169, 110, 0.10),
+                    transparent 50%),
+                var(--bg);
+        }
+
+        .contact-container {
+            width: 90%;
+            max-width: 650px;
+            margin: 25px auto;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+
+            background: linear-gradient(145deg,
+                    #171914,
+                    #0d0e0c);
+
+            border: 1px solid var(--border);
+            border-radius: 8px;
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 30px rgba(201, 169, 110, 0.04);
+
+            animation: appear 0.8s ease both;
+        }
+
+        .contact-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg,
+                    transparent,
+                    var(--gold),
+                    transparent);
+        }
+
+        .brand {
+            text-align: center;
+            color: var(--gold);
+            font-size: 11px;
+            letter-spacing: 4px;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(30px, 5vw, 42px);
+            font-weight: 400;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        h1 span {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .gold-line {
+            width: 50px;
+            height: 1px;
+            background: var(--gold);
+            margin: 0 auto 25px;
+        }
+
+        label {
+            display: block;
+            margin: 19px 0 8px;
+            color: var(--gold-light);
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 14px 15px;
+
+            background: #0a0b09;
+            color: var(--text);
+
+            border: 1px solid #303129;
+            border-radius: 4px;
+
+            font-family: inherit;
+            font-size: 14px;
+
+            outline: none;
+            transition:
+                border-color 0.3s,
+                box-shadow 0.3s,
+                background 0.3s;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #68695f;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: var(--gold);
+            background: #10110e;
+            box-shadow: 0 0 12px rgba(201, 169, 110, 0.08);
+        }
+
+        textarea {
+            height: 145px;
+            resize: vertical;
+            line-height: 1.7;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 15px;
+
+            border: 1px solid var(--gold);
+            border-radius: 4px;
+
+            background: var(--gold);
+            color: #11120e;
+
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+
+            cursor: pointer;
+            transition:
+                background 0.3s,
+                color 0.3s,
+                transform 0.3s,
+                box-shadow 0.3s;
+        }
+
+        button:hover {
+            background: transparent;
+            color: var(--gold-light);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(201, 169, 110, 0.12);
+        }
+
+        .whatsapp-icon {
+            margin-right: 8px;
+            font-size: 16px;
+            vertical-align: middle;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #292a23;
+            color: #85867b;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            line-height: 2;
+        }
+
+        .footer-note span {
+            color: var(--gold);
+        }
+
+        .custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 17px;
+            height: 17px;
+            border: 1px solid var(--gold-light);
+            background: rgba(201, 169, 110, 0.08);
+            pointer-events: none;
+            z-index: 99999;
+            transform: translate(-50%, -50%);
+            transition:
+                width 0.18s ease,
+                height 0.18s ease,
+                background 0.18s ease;
+        }
+
+        .custom-cursor.text-hover {
+            width: var(--cursor-width, 55px);
+            height: 30px;
+            background: rgba(201, 169, 110, 0.15);
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 650px) {
+            body {
+                cursor: auto;
+                padding: 10px;
+            }
+
+            .contact-container {
+                width: 100%;
+                padding: 25px 20px;
+                margin: 15px auto;
+            }
+
+            .custom-cursor {
+                display: none;
+            }
+        }
+
+        @media (pointer: coarse) {
+            body {
+                cursor: auto;
+            }
+
+            .custom-cursor {
+                display: none;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="contact-container">
+
+        <p class="brand">VASUNDHARA GARDEN</p>
+
+        <h1>Get in <span>Touch.</span></h1>
+
+        <p class="subtitle">
+            Have a question or planning a special occasion?
+            Send us a message. We'd love to hear from you.
+        </p>
+
+        <div class="gold-line"></div>
+
+        <form id="contactForm">
+
+            <label for="name">YOUR NAME</label>
+            <input type="text" id="name" placeholder="Enter your full name" required>
+
+            <label for="email">YOUR EMAIL</label>
+            <input type="email" id="email" placeholder="Enter your email address" required>
+
+            <label for="message">YOUR MESSAGE</label>
+            <textarea id="message" placeholder="Tell us how we can help you..." required></textarea>
+
+            <button type="submit">
+                <span class="whatsapp-icon">↗</span>
+                SEND MESSAGE ON WHATSAPP
+            </button>
+
+        </form>
+
+        <div class="footer-note">
+            WE LOOK FORWARD TO HEARING FROM YOU<br>
+            <span>GOOD FOOD · BEAUTIFUL MOMENTS · TIMELESS MEMORIES</span>
+        </div>
+
+    </div>
+
+    <div class="custom-cursor" id="customCursor"></div>
+
+    <script>
+        
+        document.getElementById("contactForm").addEventListener(
+            "submit",
+            function (event) {
+                event.preventDefault();
+
+                
+                const adminNumber = "91........."; // apna number
+
+                const name = document.getElementById("name").value.trim();
+                const email = document.getElementById("email").value.trim();
+                const message = document.getElementById("message").value.trim();
+
+                const whatsappMessage =
+                    "Hello Vasundhara Garden,%0A%0A" +
+                    "Name: " + encodeURIComponent(name) + "%0A" +
+                    "Email: " + encodeURIComponent(email) + "%0A%0A" +
+                    "Message:%0A" + encodeURIComponent(message);
+
+                const whatsappURL =
+                    "https://wa.me/" + adminNumber +
+                    "?text=" + whatsappMessage;
+
+                window.open(whatsappURL, "_blank");
+            }
+        );
+
+       
+    </script>
+
+</body>
+
+</html>

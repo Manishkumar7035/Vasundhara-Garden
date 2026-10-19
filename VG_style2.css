@@ -1,0 +1,162 @@
+/* SHARED DARK THEME */
+:root {
+    --bg: #090a09;
+    --panel: #111310;
+    --panel-light: #181a16;
+    --text: #f3f0e8;
+    --muted: #a6a69b;
+    --gold: #c9a96e;
+    --gold-light: #ead4a0;
+    --border: rgba(201, 169, 110, 0.23);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    cursor: none;
+}
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--gold); color: #111; }
+
+/* HEADER FRAME */
+.header-page {
+    height: 105px;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 15% 0%, rgba(201,169,110,.11), transparent 45%),
+        #0c0d0b;
+}
+.site-header {
+    height: 105px;
+    padding: 18px 4.5%;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    border-bottom: 1px solid var(--border);
+}
+.brand-mark {
+    width: 55px;
+    height: 55px;
+    border: 1px solid var(--gold);
+    display: grid;
+    place-items: center;
+    color: var(--gold-light);
+    font-family: Georgia, serif;
+    font-size: 20px;
+    letter-spacing: -2px;
+    transform: rotate(-4deg);
+}
+.brand-copy { flex: 1; }
+.brand-copy h1 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 500;
+    font-size: clamp(18px, 2.2vw, 29px);
+    letter-spacing: 3px;
+}
+.brand-copy h1 span { color: var(--gold); }
+.brand-copy p {
+    margin: 7px 0 0;
+    font-size: 9px;
+    letter-spacing: 2.2px;
+    color: var(--muted);
+}
+.header-contact {
+    padding: 12px 15px;
+    border: 1px solid var(--border);
+    color: var(--gold-light);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    transition: background .25s, color .25s;
+}
+.header-contact span { margin-left: 10px; }
+.header-contact:hover { background: var(--gold); color: #111; }
+
+/* NAVIGATION FRAME */
+.nav-page { min-height: 100vh; background: #0d0e0c; }
+.sidebar {
+    min-height: 100vh;
+    padding: 34px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border);
+    background: linear-gradient(180deg, #10110f, #090a09);
+}
+.nav-label, .eyebrow {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 2.6px;
+    font-weight: 600;
+}
+.nav-label { margin: 0 0 22px 8px; }
+.nav-links { display: grid; gap: 7px; }
+.nav-links a {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 14px 9px;
+    color: #c2c1b8;
+    border: 1px solid transparent;
+    font-size: 13px;
+    transition: color .25s, background .25s, border-color .25s, padding .25s;
+}
+.nav-links a span {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+.nav-links a:hover {
+    color: var(--gold-light);
+    background: rgba(201,169,110,.07);
+    border-color: var(--border);
+    padding-left: 15px;
+}
+.sidebar-note {
+    margin-top: auto;
+    padding: 24px 9px;
+    color: var(--muted);
+}
+.gold-line { display: block; width: 36px; height: 1px; background: var(--gold); margin-bottom: 17px; }
+.sidebar-note p { font-size: 11px; line-height: 1.8; letter-spacing: 2px; }
+.sidebar-note strong { color: var(--gold-light); font-weight: 500; }
+.sidebar-note small { display: block; font-size: 11px; line-height: 1.7; }
+.sidebar-footer {
+    border-top: 1px solid var(--border);
+    padding: 18px 0 0;
+    color: #77796f;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+.sidebar-footer span { float: right; color: var(--gold); }
+
+/* CURSOR */
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 17px;
+    height: 17px;
+    border: 1px solid var(--gold-light);
+    background: rgba(201,169,110,.08);
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    transition: width .18s ease, height .18s ease, background .18s ease, border-color .18s ease;
+    mix-blend-mode: difference;
+}
+.custom-cursor.text-hover {
+    width: var(--cursor-width, 55px);
+    height: 31px;
+    background: rgba(201,169,110,.2);
+    border-color: var(--gold-light);
+}
+@media (max-width: 650px) {
+    body { cursor: auto; }
+    .custom-cursor { display: none; }
+    .header-contact { display: none; }
+    .brand-copy p { letter-spacing: 1px; font-size: 8px; }
+}
